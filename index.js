@@ -1,7 +1,7 @@
 /**
  * Controls physics engine settings, like spring length, drag coefficient, etc.
  *
- * @param {ngraph.pixel} renderer instance which is performing the renderer
+ * @param {ngraph.pixel} renderer instance which is performing the rendering
  * @param {dat.gui} gui instance which shows configuration interface
  */
 module.exports = addLayoutSettings;

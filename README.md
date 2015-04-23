@@ -2,7 +2,7 @@
 
 Adds layout settings to ngraph.pixel.
 
-![Layout configuration UI](https://raw.github.com/anvaka/ngraph.pixel/master/demo.png)
+![Layout configuration UI](https://raw.githubusercontent.com/anvaka/config.layout/master/demo.png)
 
 # usage
 

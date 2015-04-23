@@ -11,7 +11,7 @@ from version `0.1.5`). To enable it in the `ngraph.pixel` pass the `settings: tr
 argument to the renderer constructor:
 
 ``` js
-var render = require('ngraph.pixel);
+var render = require('ngraph.pixel');
 var renderer = render(graph, {
   settings: true
 });

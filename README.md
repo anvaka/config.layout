@@ -1,6 +1,6 @@
 # config.layout
 
-Adds layout settings to ngraph.pixel.
+Adds layout settings to [ngraph.pixel](https://github.com/anvaka/ngraph.pixel).
 
 ![Layout configuration UI](https://raw.githubusercontent.com/anvaka/config.layout/master/demo.png)
 

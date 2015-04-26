@@ -1,12 +1,13 @@
 /**
  * Controls physics engine settings, like spring length, drag coefficient, etc.
  *
- * @param {ngraph.pixel} renderer instance which is performing the renderer
- * @param {dat.gui} gui instance which shows configuration interface
+ * @param {config.pixel} renderer settings controller (see https://github.com/anvaka/config.pixel)
  */
 module.exports = addLayoutSettings;
 
-function addLayoutSettings(renderer, gui) {
+function addLayoutSettings(settings) {
+  var renderer = settings.renderer();
+  var gui = settings.gui();
   var model = createLayoutModel(renderer);
   // Maybe in future localization will bite you, anvaka...
   // -- Your friend from the past, you

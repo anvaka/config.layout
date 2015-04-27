@@ -7,11 +7,18 @@ module.exports = addLayoutSettings;
 
 function addLayoutSettings(settings) {
   var renderer = settings.renderer();
+  var layout = renderer.layout();
   var gui = settings.gui();
   var model = createLayoutModel(renderer);
   // Maybe in future localization will bite you, anvaka...
   // -- Your friend from the past, you
   var folder = gui.addFolder('Layout Settings');
+
+  var support3d = typeof layout.on === 'function' && typeof layout.is3d === 'function';
+  if (support3d) {
+    layout.on('reset', updateMode);
+    folder.add(model, 'is3d').onChange(set3dMode);
+  }
 
   folder.add(model, 'springLength', 0, 1000).onChange(setSimulatorOption('springLength'));
   folder.add(model, 'springCoeff', 0, 0.1).onChange(setSimulatorOption('springCoeff'));
@@ -31,6 +38,16 @@ function addLayoutSettings(settings) {
     };
   }
 
+  function set3dMode() {
+    layout.is3d(model.is3d);
+    renderer.focus();
+  }
+
+  function updateMode() {
+    model.is3d = layout.is3d();
+    gui.update();
+  }
+
   function createLayoutModel(renderer) {
     if (!renderer) throw new Error('Renderer is required for configuration options');
 
@@ -41,6 +58,7 @@ function addLayoutSettings(settings) {
     if (!simulator) throw new Error('Simlator is not defined on this layout instance');
 
     return {
+      is3d: true,
       springLength: simulator.springLength(),
       springCoeff: simulator.springCoeff(),
       gravity: simulator.gravity(),
